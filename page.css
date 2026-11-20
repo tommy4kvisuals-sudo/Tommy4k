@@ -1,0 +1,109 @@
+/* Inner pages: about, service pages, project pages. Loads after style.css and reuses its header, footer, buttons and colours. */
+
+.page { padding-top: calc(env(safe-area-inset-top, 0px) + var(--gutter) + 92px); }
+.col { width: min(100% - 2 * var(--gutter), 1180px); margin-inline: auto; }
+.kicker { font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-dim); margin-bottom: 14px; }
+.crumbs { display: flex; gap: 8px; flex-wrap: wrap; font-size: 13px; color: var(--fg-dim); margin-bottom: 18px; }
+.crumbs a:hover { color: var(--fg); }
+
+/* page hero: a rounded frame like the homepage reel, title sitting on the image */
+.phero { padding-left: max(var(--gutter), env(safe-area-inset-left, 0px)); padding-right: max(var(--gutter), env(safe-area-inset-right, 0px)); }
+.phero__frame { position: relative; height: clamp(420px, 68svh, 760px); border-radius: var(--r); overflow: hidden; background: var(--surface); isolation: isolate; display: flex; align-items: flex-end; }
+.phero__frame > .ph, .phero__frame > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.phero__frame::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(12, 19, 40, .35) 0, rgba(12, 19, 40, 0) 35%, rgba(12, 19, 40, .15) 60%, rgba(12, 19, 40, .85) 100%); }
+.phero__copy { padding: 0 clamp(22px, 3vw, 40px) clamp(24px, 3vw, 40px); max-width: 900px; }
+.phero h1 { font-size: clamp(48px, 7.4vw, 128px); }
+.phero__sub { margin-top: 14px; font-size: clamp(17px, 1.5vw, 21px); max-width: 44ch; }
+.phero__btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+
+/* plain title block for pages without a hero image */
+/* title on its own line, intro underneath: the wide display face needs the full width */
+.ptitle { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(12px, 1.6vw, 22px); }
+.ptitle h1 { font-size: clamp(52px, 9vw, 150px); overflow-wrap: break-word; }
+.ptitle p { font-size: clamp(17px, 1.5vw, 21px); max-width: 44ch; }
+.phero__frame > .ph small { top: 16px; right: 18px; left: auto; bottom: auto; }
+
+/* two column text block, same split as the project view on the homepage */
+.split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 72px); padding-top: clamp(56px, 7vw, 104px); }
+.split h2 { font-size: clamp(32px, 3.8vw, 60px); }
+.split h2 + p { margin-top: 14px; color: var(--fg-dim); max-width: 34ch; }
+.prose { display: grid; align-content: start; gap: 1em; font-size: clamp(17px, 1.3vw, 20px); line-height: 1.6; max-width: 62ch; }
+.prose a { border-bottom: 1px solid var(--line); transition: border-color .3s; }
+.prose a:hover { border-color: var(--fg); }
+
+/* simple rows: what I shoot, practical details */
+.rowsl { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); max-width: 62ch; }
+.rowsl li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.rowsl li span:last-child { color: var(--fg-dim); }
+
+/* how it works: a line with a dot per step */
+.steps { list-style: none; margin: 0 0 0 6px; padding: 0; display: grid; max-width: 62ch; border-left: 1px solid var(--line); }
+.steps li { position: relative; padding: 0 0 28px 30px; display: grid; gap: 4px; color: var(--fg-dim); }
+.steps li:last-child { padding-bottom: 0; }
+.steps li::before { content: ""; position: absolute; left: -6px; top: 6px; width: 11px; height: 11px; border-radius: 50%; background: var(--fg); }
+.steps b { color: var(--fg); font-weight: 700; font-size: 17px; }
+
+/* work cards */
+.wcards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(10px, 1.2vw, 16px); padding-top: 28px; }
+.wcards.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.wcard { display: block; border-radius: 20px; overflow: hidden; background: var(--surface); }
+.wcard__img { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
+.wcards.four .wcard__img { aspect-ratio: 9 / 14; }
+.wcard__img > * { transition: transform 1.2s var(--ease); }
+.wcard:hover .wcard__img > * { transform: scale(1.04); }
+.wcard__txt { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 16px 18px 18px; }
+.wcard__txt b { font-family: var(--display); font-stretch: 125%; font-weight: 800; text-transform: uppercase; font-size: 20px; line-height: 1; }
+.wcard__txt span { font-size: 13px; color: var(--fg-dim); }
+
+/* FAQ */
+.faq { border-top: 1px solid var(--line); max-width: 62ch; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 16px; padding: 18px 0; font-size: 17px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--fg-dim); font-size: 20px; line-height: 1; transition: transform .3s var(--ease); }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { padding: 0 0 20px; color: var(--fg-dim); line-height: 1.6; }
+.faq details p a { color: var(--fg); border-bottom: 1px solid var(--line); }
+
+/* contact card at the bottom of every inner page */
+.pcta { margin-top: clamp(72px, 9vw, 128px); background: var(--lift); border-radius: var(--r); padding: clamp(26px, 4vw, 48px); display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+.pcta p { font-size: clamp(32px, 4.2vw, 68px); }
+.pcta .btns { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* project page film: poster with a play button, swapped for the player on click */
+.film { position: relative; display: block; width: 100%; margin-inline: auto; border-radius: var(--r); overflow: hidden; background: #0d1530; cursor: pointer; border: 0; padding: 0; }
+.film iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.film__play { position: absolute; right: clamp(14px, 2vw, 26px); bottom: clamp(14px, 2vw, 26px); width: 64px; height: 64px; border-radius: 50%; background: var(--fg); color: var(--bg); display: grid; place-items: center; transition: transform .5s var(--ease); }
+.film:hover .film__play { transform: scale(1.08); }
+.film__play svg { width: 18px; height: 18px; margin-left: 3px; }
+.film.tall { max-width: min(100%, calc((100svh - 180px) * 9 / 16)); }
+
+/* next project */
+.pnext { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: clamp(72px, 9vw, 128px); padding-top: 28px; border-top: 1px solid var(--line); font-size: 14px; color: var(--fg-dim); }
+.pnext b { font-family: var(--display); font-stretch: 125%; font-weight: 800; font-size: clamp(36px, 5.6vw, 88px); line-height: .95; text-transform: uppercase; color: var(--fg); transition: transform .6s var(--ease); }
+.pnext:hover b { transform: translateX(-12px); }
+
+.portrait { position: relative; aspect-ratio: 4 / 5; border-radius: var(--r); overflow: hidden; }
+
+/* 404 */
+.lost { min-height: 70svh; display: grid; align-content: center; gap: 22px; }
+.lost h1 { font-size: clamp(64px, 12vw, 200px); }
+
+@media (max-width: 900px) {
+  .wcards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wcards.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .page { padding-top: calc(env(safe-area-inset-top, 0px) + 84px); }
+  .phero { padding-left: 5px; padding-right: 5px; }
+  .phero__frame { height: 72svh; border-radius: 28px; }
+  .split, .ptitle { grid-template-columns: 1fr; gap: 20px; }
+  .wcards { gap: 8px; }
+  .wcard { border-radius: 14px; }
+  .wcard__txt { flex-direction: column; gap: 4px; padding: 12px 12px 14px; }
+  .wcard__txt b { font-size: 17px; }
+  .rowsl li { grid-template-columns: 1fr; gap: 2px; }
+  .pnext { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .pcta { flex-direction: column; align-items: flex-start; }
+}
+@media (hover: none) { .wcard:hover .wcard__img > * { transform: none; } .pnext:hover b { transform: none; } }
