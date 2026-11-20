@@ -74,7 +74,7 @@ window.T4K = {
       credits: [['Client', 'Remedy'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     },
     {
-      slug: 'lorvae', name: 'Lorvae', type: 'Campaign',
+      slug: 'lorvae', name: 'Lorvae', type: 'Brand film',
       vimeo: 'https://vimeo.com/1248829503', poster: 'media/posters/lorvae.jpg', look: [66, 70, .48, 210],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
       credits: [['Client', 'Lorvae'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
