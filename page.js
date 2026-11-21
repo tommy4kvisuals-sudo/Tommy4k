@@ -86,4 +86,29 @@
     var w = U.find(box.getAttribute('data-slug')); if (!w) return;
     var old = box.querySelector('.ph'); var p = U.pic(w, '', base); if (old) box.replaceChild(p, old); else box.insertBefore(p, box.firstChild);
   });
+
+  /* scroll reveal: sections drift up and fade in as they come on screen, list rows one after another */
+  (function () {
+    if (U.reduce || !('IntersectionObserver' in window)) return;
+    document.documentElement.classList.add('rv-on');
+    var groups = [
+      '.split > h2, .split > div > h2, .split > div > p',
+      '.prose > p', '.rowsl li', '.steps li', '.faq details', '.wcard', '.series__item',
+      '.credits', '.pcta', '.pnext', '.split > .btns'
+    ];
+    var els = [];
+    groups.forEach(function (sel) {
+      var seen = new Map();
+      document.querySelectorAll(sel).forEach(function (el) {
+        if (el.closest('.phero') || el.closest('.pjx__head')) return;
+        var n = seen.get(el.parentNode) || 0; seen.set(el.parentNode, n + 1);
+        el.classList.add('rv'); el.style.setProperty('--i', Math.min(n, 8)); els.push(el);
+      });
+    });
+    document.querySelectorAll('.steps').forEach(function (el) { el.classList.add('rv-line'); els.push(el); });
+    var io = new IntersectionObserver(function (en) {
+      en.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
 })();

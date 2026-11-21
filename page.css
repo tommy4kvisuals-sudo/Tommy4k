@@ -196,3 +196,13 @@ main.page { overflow-x: clip; }
 .pcta .btn:hover { background: #2a3d73; color: var(--fg); }
 .pcta .btn--ghost { background: transparent; color: var(--bg); border-color: rgba(25, 39, 76, .35); }
 .pcta .btn--ghost:hover { background: var(--bg); color: var(--fg); }
+
+/* ---------- scroll reveal (only when the script is running, so nothing hides without it) ---------- */
+.rv-on .rv { opacity: 0; transform: translateY(34px); transition: opacity .9s ease, transform 1.1s var(--ease); transition-delay: calc(var(--i, 0) * 90ms); }
+.rv-on .rv.is-in { opacity: 1; transform: none; }
+.rv-on .rowsl li.rv { transform: translateY(18px); }
+.rv-on .steps.rv-line { border-left-color: transparent; position: relative; }
+.rv-on .steps.rv-line::before { content: ""; position: absolute; left: -1px; top: 0; bottom: 0; width: 1px; background: var(--line); transform: scaleY(0); transform-origin: 50% 0; transition: transform 1.8s var(--ease); }
+.rv-on .steps.rv-line.is-in::before { transform: scaleY(1); }
+.rv-on .steps li.rv::before { transform: scale(0); transition: transform .6s var(--ease); transition-delay: calc(var(--i, 0) * 90ms + 250ms); }
+.rv-on .steps li.rv.is-in::before { transform: scale(1); }
