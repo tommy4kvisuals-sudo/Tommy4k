@@ -97,7 +97,8 @@ window.T4K = {
     },
     {
       slug: 'essence-x-ulta', name: 'Essence x Ulta', type: 'Brand film',
-      vimeo: '', poster: '', look: [56, 36, .54, 145],
+      vimeo: 'https://vimeo.com/1248951028/122939cf16',
+      poster: 'https://i.vimeocdn.com/video/2229182905-9a5d9319dbae6a6e28b4cb14c0b477e94b12b024211fe83a944da9395417f1ec-d?f=webp&region=us', look: [56, 36, .54, 145],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
       credits: [['Client', 'Essence x Ulta Beauty'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     }
