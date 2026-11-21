@@ -174,3 +174,25 @@ main.page { overflow-x: clip; }
 /* older cached pages (plain "Next project" markup) keep a proper look until the browser picks up the new page */
 .pnext > span:not([class]) { grid-area: label; }
 .pnext > b:not([class]) { grid-area: name; font-family: var(--display); font-stretch: 125%; font-weight: 800; font-size: clamp(34px, 5.2vw, 84px); line-height: 1; text-transform: uppercase; color: var(--fg); }
+
+/* ---------- next project as a picture card: the next film's still fills the card ---------- */
+.pnext { min-height: clamp(220px, 24vw, 340px); border-top: 0; border-radius: var(--r); background: #0d1530; padding: clamp(24px, 3vw, 44px); grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "label go" "name go"; align-content: end; }
+.pnext::before { display: none; }
+.pnext__thumb { position: absolute; inset: 0; z-index: -1; grid-area: auto; align-self: stretch; justify-self: stretch; height: auto; width: auto; aspect-ratio: auto; border-radius: 0; clip-path: none; background: #0d1530; }
+.pnext__thumb > * { opacity: .5; transform: scale(1.06); transition: transform 1.2s var(--ease), opacity .8s; }
+.pnext__thumb::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(12, 19, 40, .85) 0%, rgba(12, 19, 40, .35) 60%, rgba(12, 19, 40, .55) 100%); }
+.pnext__label { color: var(--fg); opacity: .8; text-transform: uppercase; letter-spacing: .14em; font-size: 12px; }
+.pnext__go { align-self: end; border-color: rgba(239, 231, 214, .45); }
+@media (hover: hover) {
+  .pnext:hover .pnext__thumb { clip-path: none; }
+  .pnext:hover .pnext__thumb > * { opacity: .85; transform: scale(1); }
+}
+@media (hover: none) { .pnext__thumb { clip-path: none; } .pnext__thumb > * { transform: none; } }
+@media (max-width: 640px) { .pnext { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "label go" "name go"; min-height: 200px; } .pnext__thumb { width: auto; aspect-ratio: auto; margin: 0; } }
+
+/* ---------- "Like what you see?": a cream card so it reads as the call to action, not another project ---------- */
+.pcta { background: var(--fg); color: var(--bg); }
+.pcta .btn { background: var(--bg); color: var(--fg); }
+.pcta .btn:hover { background: #2a3d73; color: var(--fg); }
+.pcta .btn--ghost { background: transparent; color: var(--bg); border-color: rgba(25, 39, 76, .35); }
+.pcta .btn--ghost:hover { background: var(--bg); color: var(--fg); }
