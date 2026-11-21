@@ -343,3 +343,22 @@ footer.site a:hover { color: var(--fg); }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
 }
+
+/* series: "+2 more films" button under the video in the pop-up, and the film count on the list */
+.pj__series { display: inline-flex; align-items: center; gap: 18px; padding: 10px 10px 10px 18px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); transition: background .35s, border-color .35s; max-width: 100%; }
+.pj__series[hidden] { display: none; }
+.pj__series:hover, .pj__series:focus-visible { background: var(--lift); border-color: var(--fg-dim); }
+.pj__stack { position: relative; display: flex; align-items: center; padding: 4px 6px; }
+.pj__card { position: relative; width: 38px; height: 60px; margin-left: -16px; border-radius: 7px; overflow: hidden; background: #0d1530; box-shadow: 0 0 0 2px var(--surface), 0 6px 14px rgba(0,0,0,.35); transform: rotate(calc(var(--k) * 8deg)) translateY(calc(var(--k) * var(--k) * 3px)); transition: transform .5s var(--ease), margin .5s var(--ease); }
+.pj__card:first-child { margin-left: 0; }
+.pj__card img, .pj__card .ph { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.pj__card .ph small { display: none; }
+.pj__series:hover .pj__card { margin-left: 4px; transform: rotate(0) translateY(-2px); }
+.pj__series:hover .pj__card:first-child { margin-left: 0; }
+.pj__seriesTxt { display: grid; gap: 2px; text-align: left; min-width: 0; }
+.pj__seriesTxt b { font-family: var(--display); font-stretch: 125%; font-weight: 800; text-transform: uppercase; font-size: clamp(15px, 1.3vw, 19px); line-height: 1.05; }
+.pj__seriesTxt span { font-size: 13px; color: var(--fg-dim); }
+.pj__seriesGo { flex: none; width: 44px; height: 44px; border-radius: 50%; background: var(--fg); color: var(--bg); display: grid; place-items: center; font-size: 18px; transition: transform .45s var(--ease); }
+.pj__series:hover .pj__seriesGo { transform: translateX(4px); }
+.row__count { display: inline-block; margin-left: 10px; padding: 3px 9px; border: 1px solid var(--line); border-radius: 999px; font-style: normal; font-size: 12px; color: var(--fg); white-space: nowrap; }
+@media (max-width: 560px) { .pj__series { gap: 12px; padding-left: 12px; } .pj__card { width: 32px; height: 50px; } .pj__seriesGo { width: 38px; height: 38px; } }

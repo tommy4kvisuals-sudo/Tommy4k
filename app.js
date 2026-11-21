@@ -40,7 +40,9 @@
     a.className = 'row'; a.href = 'work/' + w.slug + '.html'; a.dataset.cursor = 'View'; a.dataset.i = i;
     var th = document.createElement('div'); th.className = 'row__thumb'; th.appendChild(U.pic(w, w.poster ? '' : '16:9')); a.appendChild(th);
     var n = document.createElement('span'); n.className = 'row__name display'; n.textContent = w.name; a.appendChild(n);
-    var t = document.createElement('span'); t.className = 'row__type'; t.textContent = w.type; a.appendChild(t);
+    var t = document.createElement('span'); t.className = 'row__type'; t.textContent = w.type;
+    if (w.more && w.more.length) { var tg = document.createElement('em'); tg.className = 'row__count'; tg.textContent = (w.more.length + 1) + ' films'; t.appendChild(tg); }
+    a.appendChild(t);
     var ar = document.createElement('span'); ar.className = 'row__arrow'; ar.setAttribute('aria-hidden', 'true'); ar.textContent = '→'; a.appendChild(ar);
     a.addEventListener('click', function (e) { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); openProject(w, true); });
     rows.appendChild(a);
@@ -151,9 +153,20 @@
     (w.credits || []).forEach(function (c) { var dt = document.createElement('dt'), dd = document.createElement('dd'); dt.textContent = c[0]; dd.textContent = c[1]; cr.appendChild(dt); cr.appendChild(dd); });
     $('pjLink').href = 'work/' + w.slug + '.html';
     $('pjLink').textContent = w.more && w.more.length ? 'See all ' + (w.more.length + 1) + ' ' + w.name + ' films' : 'Full project page';
+    var ser = $('pjSeries'), stk = $('pjStack'); stk.innerHTML = '';
+    if (w.more && w.more.length) {
+      ser.href = 'work/' + w.slug + '.html#more';
+      $('pjSeriesCount').textContent = '+' + w.more.length + ' more ' + w.name + ' film' + (w.more.length > 1 ? 's' : '');
+      w.more.slice(0, 3).forEach(function (f, k) {
+        var c = document.createElement('span'); c.className = 'pj__card'; c.style.setProperty('--k', k - (Math.min(w.more.length, 3) - 1) / 2);
+        c.appendChild(U.pic({ name: w.name + ' ' + (f.title || ''), type: w.type, poster: f.poster, look: f.look || w.look, vimeo: f.vimeo, focus: f.focus }, ''));
+        stk.appendChild(c);
+      });
+      ser.hidden = false;
+    } else ser.hidden = true;
     $('pjMoreName').textContent = set[(i + 1) % set.length].name;
     pjf.style.aspectRatio = String(w.ar);
-    pjf.style.width = 'min(100%, calc((100svh - 120px) * ' + w.ar.toFixed(4) + '))';
+    pjf.style.width = 'min(100%, calc((100svh - ' + (w.more && w.more.length ? 210 : 120) + 'px) * ' + w.ar.toFixed(4) + '))'; /* leave room for the series button */
     fill(pjf, w, (w.ar < 1 ? '9:16' : '16:9') + ' · add the Vimeo link in site-data.js');
     pj.scrollTop = 0;
     if (!pj.classList.contains('open')) opener = document.activeElement;

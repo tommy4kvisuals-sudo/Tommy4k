@@ -45,7 +45,8 @@
       if (f.title) { var fc = document.createElement('figcaption'); fc.textContent = f.title; c.appendChild(fc); }
       g.appendChild(c);
     });
-    sec.hidden = false;
+    sec.hidden = false; sec.id = 'more';
+    if (location.hash === '#more') setTimeout(function () { sec.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 400);
   });
 
   /* write-up and credits come from site-data.js, so they only need editing in one place */
