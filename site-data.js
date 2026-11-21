@@ -41,8 +41,8 @@ window.T4K = {
   /* Videography: brand films and campaigns you shot and edited */
   video: [
     {
-      slug: 'toyota', name: 'Toyota', type: 'Brand film',
-      vimeo: '', poster: '', look: [62, 58, .5, 155],
+      slug: 'toyota', name: 'Toyota', type: 'Brand film', ar: 9 / 16,
+      vimeo: 'https://vimeo.com/1248838791', poster: 'media/posters/toyota.jpg', focus: '40% 60%', look: [62, 58, .5, 155],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
       credits: [['Client', 'Toyota'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     },
