@@ -16,7 +16,7 @@ window.T4K = {
   },
 
   reel: {
-    vimeo: ''                     /* full showreel, plays muted behind your name and with sound when clicked */
+    vimeo: 'https://vimeo.com/1248952759/533a681138'   /* full showreel (placeholder for now), plays muted behind your name and with sound when clicked */
   },
 
   /* "Trusted by many" logo strip under the reel.
@@ -73,13 +73,6 @@ window.T4K = {
       look: [24, 62, .42, 200],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
       credits: [['Client', 'Aston Martin'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
-    },
-    {
-      slug: 'remedy', name: 'Remedy', type: 'Campaign', ar: 9 / 16,
-      vimeo: 'https://vimeo.com/1022478150',
-      poster: 'media/posters/remedy.jpg', focus: '50% 40%', look: [84, 46, .5, 170],
-      about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
-      credits: [['Client', 'Remedy'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     },
     {
       slug: 'lorvae', name: 'Lorvae', type: 'Brand film',
@@ -151,6 +144,17 @@ window.T4K = {
       look: [70, 30, .44, 200],
       about: ['Write-up coming soon: a couple of lines about the story and how it was made.'],
       credits: [['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
+    }
+  ],
+
+  /* Social spots: short promos for the feed, vertical 9:16. name = what the piece is, type = the label under it */
+  spots: [
+    {
+      slug: 'remedy-body-glow', name: 'Body Glow Launch', type: 'Product launch', ar: 9 / 16,
+      vimeo: 'https://vimeo.com/1022478150',
+      poster: 'media/posters/remedy.jpg', focus: '50% 40%', look: [84, 46, .5, 170],
+      about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
+      credits: [['Client', 'Remedy'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     }
   ]
 };

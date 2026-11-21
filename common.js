@@ -7,6 +7,7 @@
   (T.video || []).forEach(function (w) { w.ar = w.ar || 16 / 9; w.set = T.video; w.kind = 'video'; });
   (T.creator || []).forEach(function (w) { w.ar = 9 / 16; w.set = T.creator; w.kind = 'creator'; });
   (T.documentary || []).forEach(function (w) { w.ar = w.ar || 16 / 9; w.set = T.documentary; w.kind = 'documentary'; });
+  (T.spots || []).forEach(function (w) { w.ar = w.ar || 9 / 16; w.set = T.spots; w.kind = 'spots'; });
 
   /* "https://vimeo.com/123456789/abc123" -> { id: '123456789', h: 'abc123' } */
   function vimeo(link) {
@@ -43,7 +44,7 @@
     if (w.vimeo && !canEmbed) label = w.name + ' · film plays on the live site';
     return placeholder(w, label);
   }
-  function find(slug) { var all = (T.video || []).concat(T.creator || [], T.documentary || []), r = null; all.forEach(function (w) { if (w.slug === slug) r = w; }); return r; }
+  function find(slug) { var all = (T.video || []).concat(T.creator || [], T.documentary || [], T.spots || []), r = null; all.forEach(function (w) { if (w.slug === slug) r = w; }); return r; }
 
   window.T4KUtil = { reduce: reduce, canEmbed: canEmbed, vimeo: vimeo, vimeoSrc: vimeoSrc, lookStyle: lookStyle, pic: pic, find: find };
 

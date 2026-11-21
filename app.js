@@ -50,35 +50,39 @@
   });
   $('video-count').textContent = T.video.length + (T.video.length === 1 ? ' project' : ' projects');
 
-  var cards = $('cards');
-  T.creator.forEach(function (w) {
-    var b = document.createElement('a'); b.className = 'card'; b.href = 'work/' + w.slug + '.html'; b.dataset.cursor = 'View';
-    var p = document.createElement('div'); p.className = 'card__pic'; p.appendChild(U.pic(w, w.poster ? '' : '9:16')); b.appendChild(p);
-    var tx = document.createElement('span'); tx.className = 'card__txt';
-    var n = document.createElement('span'); n.className = 'card__name'; n.textContent = w.name; tx.appendChild(n);
-    var t = document.createElement('span'); t.className = 'card__type'; t.textContent = w.type; tx.appendChild(t);
-    b.appendChild(tx);
-    b.addEventListener('click', function (e) { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); openProject(w, true); });
-    cards.appendChild(b);
-  });
-  $('creator-count').textContent = T.creator.length + ' pieces';
-
-  /* creator cards play their film muted, on a loop, while they are on screen */
-  if (!reduce && 'IntersectionObserver' in window) {
-    var cardEls = [].slice.call(cards.querySelectorAll('.card__pic'));
-    var cardIO = new IntersectionObserver(function (en) {
+  /* card rows (content creation, social spots): each card plays its film muted, on a loop, while on screen */
+  function cardRow(list, cards, countEl, unit) {
+    if (!cards) return;
+    list = list || [];
+    if (!list.length) { var sec = cards.closest('section'); if (sec) sec.hidden = true; return; }
+    list.forEach(function (w) {
+      var b = document.createElement('a'); b.className = 'card'; b.href = 'work/' + w.slug + '.html'; b.dataset.cursor = 'View';
+      var p = document.createElement('div'); p.className = 'card__pic'; p.appendChild(U.pic(w, w.poster ? '' : '9:16')); b.appendChild(p);
+      var tx = document.createElement('span'); tx.className = 'card__txt';
+      var n = document.createElement('span'); n.className = 'card__name'; n.textContent = w.name; tx.appendChild(n);
+      var t = document.createElement('span'); t.className = 'card__type'; t.textContent = w.type; tx.appendChild(t);
+      b.appendChild(tx);
+      b.addEventListener('click', function (e) { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); openProject(w, true); });
+      cards.appendChild(b);
+    });
+    if (countEl) countEl.textContent = list.length + ' ' + unit + (list.length === 1 ? '' : 's');
+    if (reduce || !('IntersectionObserver' in window)) return;
+    var els = [].slice.call(cards.querySelectorAll('.card__pic'));
+    var io = new IntersectionObserver(function (en) {
       en.forEach(function (e) {
-        var p = e.target, k = cardEls.indexOf(p), f = p.querySelector('iframe');
+        var p = e.target, k = els.indexOf(p), f = p.querySelector('iframe');
         if (e.isIntersecting && !f) {
-          var src = U.vimeoSrc(T.creator[k].vimeo, 'bg'); if (!src) { cardIO.unobserve(p); return; }
+          var src = U.vimeoSrc(list[k].vimeo, 'bg'); if (!src) { io.unobserve(p); return; }
           f = document.createElement('iframe'); f.src = src; f.allow = 'autoplay'; f.tabIndex = -1; f.title = ''; f.setAttribute('aria-hidden', 'true');
           f.addEventListener('load', function () { setTimeout(function () { f.classList.add('ready'); }, 900); });
           p.appendChild(f);
         } else if (f) { vcmd(f, e.isIntersecting ? 'play' : 'pause'); }
       });
     }, { rootMargin: '200px' });
-    cardEls.forEach(function (p) { cardIO.observe(p); });
+    els.forEach(function (p) { io.observe(p); });
   }
+  cardRow(T.creator, $('cards'), $('creator-count'), 'piece');
+  cardRow(T.spots, $('spotCards'), $('spots-count'), 'spot');
 
   /* ---------- reel: Vimeo in the background once a link is added, soft moving light until then ---------- */
   var reel = $('reel'), reelBox = $('reelVideo'), reelFrame = null, reelOn = true;

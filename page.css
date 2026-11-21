@@ -120,3 +120,5 @@
 .series__item .film { width: 100%; max-width: none; }
 .series__item figcaption { font-size: 14px; color: var(--fg-dim); }
 @media (max-width: 560px) { .series__grid { grid-template-columns: 1fr 1fr; } .series__item.wide { grid-column: 1 / -1; } }
+
+.wcard.tall .wcard__img { aspect-ratio: 9 / 16; }
