@@ -365,3 +365,9 @@ footer.site a:hover { color: var(--fg); }
 
 .head__more { color: var(--fg-dim); font-size: 14px; transition: color .3s; }
 .head__more:hover { color: var(--fg); }
+
+/* hero: the small T4K mark, centred on the reel */
+.reel h1 .reel__mark { display: inline-grid; width: clamp(76px, 7.5vw, 116px); height: clamp(76px, 7.5vw, 116px); font-size: clamp(17px, 1.7vw, 26px); border-width: 2px; color: var(--fg); text-shadow: none; box-shadow: 0 10px 40px rgba(12, 19, 40, .25); animation: markIn 1.3s var(--ease) both; }
+html.is-preloading .reel h1 .reel__mark { animation-play-state: paused; }
+@keyframes markIn { from { transform: scale(.6); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (max-width: 760px) { .reel h1 .reel__mark { width: 72px; height: 72px; font-size: 16px; } }
