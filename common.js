@@ -49,9 +49,11 @@
   /* credits: plain names stay text, @handles link to Instagram */
   function creditInto(dd, text) {
     dd.textContent = '';
-    String(text).split(/(@[A-Za-z0-9._]+)/).forEach(function (part) {
-      if (/^@[A-Za-z0-9._]+$/.test(part)) { var a = document.createElement('a'); a.href = 'https://www.instagram.com/' + part.slice(1).replace(/\.$/, '') + '/'; a.target = '_blank'; a.rel = 'noopener'; a.textContent = part; dd.appendChild(a); }
-      else if (part) dd.appendChild(document.createTextNode(part));
+    String(text).split(/,\s*/).forEach(function (item, n) {
+      if (n) dd.appendChild(document.createTextNode(', '));
+      var m = item.match(/^(.*)\|([A-Za-z0-9._]+)$/), h = item.match(/^@([A-Za-z0-9._]+)$/);
+      if (m || h) { var a = document.createElement('a'); a.href = 'https://www.instagram.com/' + (m ? m[2] : h[1]).replace(/\.$/, '') + '/'; a.target = '_blank'; a.rel = 'noopener'; a.textContent = m ? m[1] : '@' + h[1]; dd.appendChild(a); }
+      else dd.appendChild(document.createTextNode(item));
     });
   }
   window.T4KUtil = { creditInto: creditInto, reduce: reduce, canEmbed: canEmbed, vimeo: vimeo, vimeoSrc: vimeoSrc, lookStyle: lookStyle, pic: pic, find: find };
