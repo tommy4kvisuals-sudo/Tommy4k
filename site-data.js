@@ -91,7 +91,7 @@ window.T4K = {
     {
       slug: 'essence-x-ulta', name: 'Essence x Ulta', type: 'Brand film',
       vimeo: 'https://vimeo.com/1248951028/122939cf16',
-      poster: 'https://i.vimeocdn.com/video/2229182905-9a5d9319dbae6a6e28b4cb14c0b477e94b12b024211fe83a944da9395417f1ec-d?f=webp&region=us', look: [56, 36, .54, 145],
+      poster: 'media/posters/essence-x-ulta.jpg', look: [56, 36, .54, 145],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
       credits: [['Client', 'Essence x Ulta Beauty'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     }
@@ -121,7 +121,7 @@ window.T4K = {
     {
       slug: 'microsoft-365', name: 'Microsoft 365', type: 'Creator partnership',
       vimeo: 'https://vimeo.com/1248949686/0b8417583e',
-      poster: 'https://i.vimeocdn.com/video/2229180987-c7cff05124946273781b8a56716f7dfd5a61cbc88d060117145f22b5c47082c2-d?f=webp&region=us', look: [40, 40, .5, 130],
+      poster: 'media/posters/microsoft-365.jpg', look: [40, 40, .5, 130],
       about: ['Write-up coming soon: what the partnership was and how the piece came together.'],
       credits: [['Brand', 'Microsoft 365'], ['Creator', 'Tommy Omolabi']]
     }
@@ -159,21 +159,21 @@ window.T4K = {
     {
       slug: 'new-years-campaign', name: "New Year's Campaign", type: 'Holiday campaign', ar: 16 / 9,
       vimeo: 'https://vimeo.com/1248952762/21bb0b69f1',
-      poster: 'https://i.vimeocdn.com/video/2229185895-1c25177d1604d4b7d02b7eab5d8d2edfdbd55cc678565133416580c7b79baa1c-d?f=webp&region=us', look: [30, 40, 0.5, 160],
+      poster: 'media/posters/new-years-campaign.jpg', look: [30, 40, 0.5, 160],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
       credits: [['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Mikey Newell']]
     },
     {
       slug: 'holiday-teaser', name: 'Holiday Teaser', type: 'Holiday spot', ar: 16 / 9,
       vimeo: 'https://vimeo.com/1248952761/dfa46cf371',
-      poster: 'https://i.vimeocdn.com/video/2229187780-67fcae4d578fa7d2ef45177c1c71817ae8ed72b13cc937daef8add02f47e7f6a-d?f=webp&region=us', look: [64, 30, 0.48, 150],
+      poster: 'media/posters/holiday-teaser.jpg', look: [64, 30, 0.48, 150],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
       credits: [['Client', 'Yummy Extensions'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Mikey Newell']]
     },
     {
       slug: 'campaign-spot', name: 'Campaign Spot', type: 'Voiceover spot', ar: 16 / 9,
       vimeo: 'https://vimeo.com/1248952755/ab4915eba0',
-      poster: 'https://i.vimeocdn.com/video/2229187108-502336631654a4a89835901fee4dde5b8fe2808bf1dbb2168043d5ecbb52aed3-d?f=webp&region=us', look: [44, 62, 0.52, 190],
+      poster: 'media/posters/campaign-spot.jpg', look: [44, 62, 0.52, 190],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
       credits: [['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Mikey Newell']]
     },
@@ -187,7 +187,7 @@ window.T4K = {
     {
       slug: 'welcome-dinner-recap', name: 'Welcome Dinner Recap', type: 'Event recap', ar: 9 / 16,
       vimeo: 'https://vimeo.com/1115638529/e74c1cd02f',
-      poster: 'https://i.vimeocdn.com/video/2055045042-8089667b0857f7f0b1f143c39fca2555cf54b89565d144e0edd7c4e33f892eba-d?f=webp&region=us', look: [36, 30, 0.56, 175],
+      poster: 'media/posters/welcome-dinner-recap.jpg', look: [36, 30, 0.56, 175],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
       credits: [['Client', 'Shea Moisture'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     },
@@ -201,7 +201,7 @@ window.T4K = {
     {
       slug: 'hair-oil-spot', name: 'Hair Oil Spot', type: 'Product spot', ar: 9 / 16,
       vimeo: 'https://vimeo.com/1115632012/fc66f59577',
-      poster: 'https://i.vimeocdn.com/video/2055047937-7b0e733f066ac7e9e3e38cb786b61c3327fa0bfb17fd711d0a1a191569454ab6-d?f=webp&region=us', look: [50, 36, 0.54, 165],
+      poster: 'media/posters/hair-oil-spot.jpg', look: [50, 36, 0.54, 165],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
       credits: [['Client', 'Shea Moisture'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     }
