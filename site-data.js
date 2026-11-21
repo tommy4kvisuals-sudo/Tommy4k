@@ -94,6 +94,12 @@ window.T4K = {
       look: [46, 24, .52, 185],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
       credits: [['Client', 'Be Eyeconic'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
+    },
+    {
+      slug: 'essence-x-ulta', name: 'Essence x Ulta', type: 'Brand film',
+      vimeo: '', poster: '', look: [56, 36, .54, 145],
+      about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
+      credits: [['Client', 'Essence x Ulta Beauty'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     }
   ],
 
