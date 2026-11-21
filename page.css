@@ -171,3 +171,6 @@ main.page { overflow-x: clip; }
 /* touch screens: no hover, so the still is simply shown */
 @media (hover: none) { .pnext__thumb { clip-path: inset(0 0 0 0 round 14px); } .pnext__thumb > * { transform: none; } }
 @media (max-width: 640px) { .pnext { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "thumb thumb" "label go" "name go"; } .pnext__thumb { width: 100%; aspect-ratio: 16 / 9; margin-bottom: 8px; } }
+/* older cached pages (plain "Next project" markup) keep a proper look until the browser picks up the new page */
+.pnext > span:not([class]) { grid-area: label; }
+.pnext > b:not([class]) { grid-area: name; font-family: var(--display); font-stretch: 125%; font-weight: 800; font-size: clamp(34px, 5.2vw, 84px); line-height: 1; text-transform: uppercase; color: var(--fg); }
