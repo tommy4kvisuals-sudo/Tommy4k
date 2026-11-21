@@ -43,13 +43,14 @@ window.T4K = {
   video: [
     {
       slug: 'toyota', name: 'Toyota', type: 'Brand film', ar: 9 / 16,
-      title: 'Style With Your Ride',
-      vimeo: 'https://vimeo.com/1248838791', poster: 'media/posters/toyota.jpg', focus: '40% 60%',
+      title: 'Setup vs. the Shot',
+      vimeo: 'https://vimeo.com/1248838785', poster: 'media/posters/toyota-3.jpg', focus: '50% 35%',
       /* more films from the same client: shown as a series under the main film on the project page */
       more: [
-        { title: '24 Hours in ATL', ar: 9 / 16, vimeo: 'https://vimeo.com/1248838792', poster: 'media/posters/toyota-2.jpg' },
-        { title: 'Setup vs. the Shot', ar: 9 / 16, vimeo: 'https://vimeo.com/1248838785', poster: 'media/posters/toyota-3.jpg' }
-      ], look: [62, 58, .5, 155],
+        { title: 'Style With Your Ride', ar: 9 / 16, vimeo: 'https://vimeo.com/1248838791', poster: 'media/posters/toyota.jpg' },
+        { title: '24 Hours in ATL', ar: 9 / 16, vimeo: 'https://vimeo.com/1248838792', poster: 'media/posters/toyota-2.jpg' }
+      ],
+      look: [62, 58, .5, 155],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
       credits: [['Client', 'Toyota'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     },
