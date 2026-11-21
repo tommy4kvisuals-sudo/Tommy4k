@@ -206,3 +206,6 @@ main.page { overflow-x: clip; }
 .rv-on .steps.rv-line.is-in::before { transform: scaleY(1); }
 .rv-on .steps li.rv::before { transform: scale(0); transition: transform .6s var(--ease); transition-delay: calc(var(--i, 0) * 90ms + 250ms); }
 .rv-on .steps li.rv.is-in::before { transform: scale(1); }
+
+.credits dd a, .pj__credits dd a { border-bottom: 1px solid var(--line); transition: border-color .3s, color .3s; }
+.credits dd a:hover, .pj__credits dd a:hover { border-color: var(--fg); }

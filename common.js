@@ -46,7 +46,15 @@
   }
   function find(slug) { var all = (T.video || []).concat(T.creator || [], T.documentary || [], T.spots || []), r = null; all.forEach(function (w) { if (w.slug === slug) r = w; }); return r; }
 
-  window.T4KUtil = { reduce: reduce, canEmbed: canEmbed, vimeo: vimeo, vimeoSrc: vimeoSrc, lookStyle: lookStyle, pic: pic, find: find };
+  /* credits: plain names stay text, @handles link to Instagram */
+  function creditInto(dd, text) {
+    dd.textContent = '';
+    String(text).split(/(@[A-Za-z0-9._]+)/).forEach(function (part) {
+      if (/^@[A-Za-z0-9._]+$/.test(part)) { var a = document.createElement('a'); a.href = 'https://www.instagram.com/' + part.slice(1).replace(/\.$/, '') + '/'; a.target = '_blank'; a.rel = 'noopener'; a.textContent = part; dd.appendChild(a); }
+      else if (part) dd.appendChild(document.createTextNode(part));
+    });
+  }
+  window.T4KUtil = { creditInto: creditInto, reduce: reduce, canEmbed: canEmbed, vimeo: vimeo, vimeoSrc: vimeoSrc, lookStyle: lookStyle, pic: pic, find: find };
 
   /* grain: a handful of film-like frames swapped about 12 times a second, so it flickers in place */
   (function () {

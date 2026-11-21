@@ -162,7 +162,7 @@
     var ab = $('pjAbout'); ab.innerHTML = '';
     (w.about || []).forEach(function (t) { var p = document.createElement('p'); p.textContent = t; ab.appendChild(p); });
     var cr = $('pjCredits'); cr.innerHTML = '';
-    (w.credits || []).forEach(function (c) { var dt = document.createElement('dt'), dd = document.createElement('dd'); dt.textContent = c[0]; dd.textContent = c[1]; cr.appendChild(dt); cr.appendChild(dd); });
+    (w.credits || []).forEach(function (c) { var dt = document.createElement('dt'), dd = document.createElement('dd'); dt.textContent = c[0]; U.creditInto(dd, c[1]); cr.appendChild(dt); cr.appendChild(dd); });
     $('pjLink').href = 'work/' + w.slug + '.html';
     $('pjLink').textContent = w.more && w.more.length ? 'See all ' + (w.more.length + 1) + ' ' + w.name + ' films' : 'Full project page';
     var ser = $('pjSeries'), stk = $('pjStack'); stk.innerHTML = '';

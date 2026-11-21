@@ -93,7 +93,7 @@ window.T4K = {
       vimeo: 'https://vimeo.com/1248951028/122939cf16',
       poster: 'media/posters/essence-x-ulta.jpg', look: [56, 36, .54, 145],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
-      credits: [['Client', 'Essence x Ulta Beauty'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
+      credits: [['Client', 'Essence x Ulta Beauty'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Producer', '@aop.agency_, @cocovaughn_'], ['Gaffer', '@seeingplus'], ['Key grip', '@jvargasmedia'], ['Grip', '@samwikina'], ['Lighting', '@moonlightgriptruck'], ['1st AC', '@clayton.koffman'], ['Editor', '@calebseales'], ['Art director / set design', '@sssinclaire'], ['Talent', '@kirahominique, @jalisaevaughn, @geraud_singh']]
     }
   ],
 
@@ -161,21 +161,21 @@ window.T4K = {
       vimeo: 'https://vimeo.com/1248952762/21bb0b69f1',
       poster: 'media/posters/new-years-campaign.jpg', look: [30, 40, 0.5, 160],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
-      credits: [['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Mikey Newell']]
+      credits: [['Client', 'Yummy Extensions'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Gaffer', '@seeingplus'], ['Grip', '@sir_j.matos'], ['Editor', 'Mikey Newell (@mikeyynewell)']]
     },
     {
       slug: 'holiday-teaser', name: 'Holiday Teaser', type: 'Holiday spot', ar: 16 / 9,
       vimeo: 'https://vimeo.com/1248952761/dfa46cf371',
       poster: 'media/posters/holiday-teaser.jpg', look: [64, 30, 0.48, 150],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
-      credits: [['Client', 'Yummy Extensions'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Mikey Newell']]
+      credits: [['Client', 'Yummy Extensions'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Gaffer', '@seeingplus'], ['Grip', '@sir_j.matos'], ['Editor', 'Mikey Newell (@mikeyynewell)']]
     },
     {
       slug: 'campaign-spot', name: 'Campaign Spot', type: 'Voiceover spot', ar: 16 / 9,
       vimeo: 'https://vimeo.com/1248952755/ab4915eba0',
       poster: 'media/posters/campaign-spot.jpg', look: [44, 62, 0.52, 190],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
-      credits: [['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Mikey Newell']]
+      credits: [['Client', 'Yummy Extensions'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Gaffer', '@seeingplus'], ['Grip', '@sir_j.matos'], ['Editor', 'Mikey Newell (@mikeyynewell)']]
     },
     {
       slug: 'womens-history-month', name: "Women's History Month", type: 'Featuring Miss Texas', ar: 9 / 16,

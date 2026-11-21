@@ -74,7 +74,7 @@
   });
   document.querySelectorAll('[data-credits]').forEach(function (dl) {
     var w = U.find(dl.getAttribute('data-credits')); if (!w || !w.credits) return;
-    dl.innerHTML = ''; w.credits.forEach(function (c) { var dt = document.createElement('dt'), dd = document.createElement('dd'); dt.textContent = c[0]; dd.textContent = c[1]; dl.appendChild(dt); dl.appendChild(dd); });
+    dl.innerHTML = ''; w.credits.forEach(function (c) { var dt = document.createElement('dt'), dd = document.createElement('dd'); dt.textContent = c[0]; U.creditInto(dd, c[1]); dl.appendChild(dt); dl.appendChild(dd); });
   });
 
   /* stills on cards: swap the placeholder for the poster once one is set */
