@@ -164,11 +164,11 @@ window.T4K = {
       credits: [['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     },
     {
-      slug: 'campaign-teaser', name: 'Campaign Teaser', type: 'Teaser with voiceover', ar: 16 / 9,
+      slug: 'holiday-teaser', name: 'Holiday Teaser', type: 'Holiday spot', ar: 16 / 9,
       vimeo: 'https://vimeo.com/1248952761/dfa46cf371',
       poster: 'https://i.vimeocdn.com/video/2229187780-67fcae4d578fa7d2ef45177c1c71817ae8ed72b13cc937daef8add02f47e7f6a-d?f=webp&region=us', look: [64, 30, 0.48, 150],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
-      credits: [['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
+      credits: [['Client', 'Yummy Extensions'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     },
     {
       slug: 'campaign-spot', name: 'Campaign Spot', type: 'Voiceover spot', ar: 16 / 9,
