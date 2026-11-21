@@ -8,6 +8,17 @@
     var w = U.find(b.getAttribute('data-slug')); if (!w) return;
     b.style.aspectRatio = String(w.ar);
     if (w.ar < 1) b.classList.add('tall');
+    /* project layout: vertical films sit beside their details; the film's own colours glow behind it */
+    var px = b.closest('.pjx');
+    if (px) {
+      if (w.ar < 1) px.classList.add('pjx--tall');
+      var remote = /^https?:/.test(w.poster || '');
+      if (w.poster && (U.canEmbed || !remote)) {
+        var g = document.createElement('div'); g.className = 'pjx__glow'; g.setAttribute('aria-hidden', 'true');
+        g.style.backgroundImage = 'url("' + (remote ? '' : base) + w.poster + '")';
+        b.parentNode.insertBefore(g, b);
+      }
+    }
     b.insertBefore(U.pic(w, w.vimeo ? '' : (w.ar < 1 ? '9:16' : '16:9') + ' · add the Vimeo link in site-data.js', base), b.firstChild);
     var src = U.vimeoSrc(w.vimeo, 'player');
     if (!src) { b.querySelector('.film__play').hidden = true; b.style.cursor = 'default'; return; }

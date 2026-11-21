@@ -128,3 +128,26 @@
 /* project pages: a calmer title so the film sits higher on screen */
 .ptitle.stack h1 { font-size: clamp(36px, 5vw, 84px); }
 .ptitle.stack p { font-size: clamp(15px, 1.2vw, 18px); }
+
+/* ---------- project layout: film + details, with the film's colours glowing behind ---------- */
+main.page { overflow-x: clip; }
+.pjx { position: relative; isolation: isolate; display: grid; grid-template-columns: minmax(0, 1fr); }
+.pjx__media { position: relative; padding-top: clamp(28px, 4vw, 56px); }
+.pjx__media .film { position: relative; z-index: 1; box-shadow: 0 30px 80px -30px rgba(5, 9, 22, .8); }
+.pjx__glow { position: absolute; z-index: 0; inset: -4% -6% -12%; background: center / cover no-repeat; filter: blur(80px) saturate(1.6) brightness(.9); opacity: .75; pointer-events: none; animation: pjxGlow 12s ease-in-out infinite alternate; }
+@keyframes pjxGlow { from { transform: scale(1.02); opacity: .62; } to { transform: scale(1.14); opacity: .85; } }
+@media (prefers-reduced-motion: reduce) { .pjx__glow { animation: none; } }
+
+/* vertical films on wider screens: film on the left, title, write-up and credits beside it */
+@media (min-width: 900px) {
+  .pjx--tall { grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto 1fr; column-gap: clamp(40px, 6vw, 110px); align-items: start; }
+  .pjx--tall .pjx__media { grid-column: 1; grid-row: 1 / span 2; padding-top: 0; }
+  .pjx--tall .pjx__media .film.tall { width: calc((100svh - 170px) * 9 / 16); max-width: min(46vw, 520px); min-width: 300px; }
+  .pjx--tall .pjx__glow { inset: -6% -55% -8% -18%; filter: blur(110px) saturate(1.6) brightness(.8); }
+  .pjx--tall .pjx__head { grid-column: 2; padding-top: clamp(8px, 4vh, 56px); }
+  .pjx--tall .pjx__head h1 { font-size: clamp(36px, 4.2vw, 76px); }
+  .pjx--tall .pjx__info { grid-column: 2; grid-template-columns: 1fr; gap: clamp(24px, 3vw, 40px); padding-top: clamp(24px, 3vw, 44px); align-content: start; }
+  .pjx--tall .pjx__info .prose { max-width: 52ch; }
+  .pjx--tall .film__cap { text-align: left; }
+}
+.pjx__head, .pjx__info { position: relative; z-index: 1; }
