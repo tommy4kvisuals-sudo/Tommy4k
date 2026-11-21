@@ -150,6 +150,7 @@
     var cr = $('pjCredits'); cr.innerHTML = '';
     (w.credits || []).forEach(function (c) { var dt = document.createElement('dt'), dd = document.createElement('dd'); dt.textContent = c[0]; dd.textContent = c[1]; cr.appendChild(dt); cr.appendChild(dd); });
     $('pjLink').href = 'work/' + w.slug + '.html';
+    $('pjLink').textContent = w.more && w.more.length ? 'See all ' + (w.more.length + 1) + ' ' + w.name + ' films' : 'Full project page';
     $('pjMoreName').textContent = set[(i + 1) % set.length].name;
     pjf.style.aspectRatio = String(w.ar);
     pjf.style.width = 'min(100%, calc((100svh - 120px) * ' + w.ar.toFixed(4) + '))';

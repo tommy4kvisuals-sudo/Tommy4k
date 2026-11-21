@@ -5,6 +5,7 @@
    e.g. 'https://vimeo.com/123456789' or 'https://vimeo.com/123456789/abc123def4'.
    Leave a link empty ('') and the page shows a placeholder instead.
    poster: optional still for cards and thumbnails, e.g. 'media/posters/shea-moisture.jpg'
+   more: optional list of extra films for the same client, e.g. more: [{ title: 'Part 2', ar: 9 / 16, vimeo: '...', poster: '...' }]
    focus: optional, which part of a vertical still to keep when it is cropped wide, e.g. '50% 40%'
    ===================================================================== */
 window.T4K = {
@@ -42,7 +43,12 @@ window.T4K = {
   video: [
     {
       slug: 'toyota', name: 'Toyota', type: 'Brand film', ar: 9 / 16,
-      vimeo: 'https://vimeo.com/1248838791', poster: 'media/posters/toyota.jpg', focus: '40% 60%', look: [62, 58, .5, 155],
+      title: 'Style With Your Ride',
+      vimeo: 'https://vimeo.com/1248838791', poster: 'media/posters/toyota.jpg', focus: '40% 60%',
+      /* more films from the same client: shown as a series under the main film on the project page */
+      more: [
+        { title: '24 Hours in ATL', ar: 9 / 16, vimeo: 'https://vimeo.com/1248838792', poster: 'media/posters/toyota-2.jpg' }
+      ], look: [62, 58, .5, 155],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
       credits: [['Client', 'Toyota'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     },
