@@ -35,16 +35,24 @@
 
   /* ---------- project rows (real links for Google, open the project view on click) ---------- */
   var rows = $('rows'), pv = $('preview');
-  T.video.forEach(function (w, i) {
+  /* Social Spots sits in the list as its own row, right after Aston Martin, and links to its page */
+  var rowList = T.video.slice();
+  if (T.spots && T.spots.length) {
+    var s0 = T.spots[0], at = rowList.map(function (w) { return w.slug; }).indexOf('aston-martin');
+    rowList.splice(at < 0 ? Math.min(4, rowList.length) : at + 1, 0, { slug: 'social-spots', name: 'Social Spots', type: 'Launches & promos', href: 'social-spots.html', count: T.spots.length,
+      vimeo: s0.vimeo, poster: s0.poster, ar: s0.ar, focus: s0.focus, look: s0.look });
+  }
+  rowList.forEach(function (w, i) {
     var a = document.createElement('a');
-    a.className = 'row'; a.href = 'work/' + w.slug + '.html'; a.dataset.cursor = 'View'; a.dataset.i = i;
+    a.className = 'row' + (w.href ? ' row--group' : ''); a.href = w.href || 'work/' + w.slug + '.html'; a.dataset.cursor = 'View'; a.dataset.i = i;
     var th = document.createElement('div'); th.className = 'row__thumb'; th.appendChild(U.pic(w, w.poster ? '' : '16:9')); a.appendChild(th);
     var n = document.createElement('span'); n.className = 'row__name display'; n.textContent = w.name; a.appendChild(n);
     var t = document.createElement('span'); t.className = 'row__type'; t.textContent = w.type;
-    if (w.more && w.more.length) { var tg = document.createElement('em'); tg.className = 'row__count'; tg.textContent = (w.more.length + 1) + ' films'; t.appendChild(tg); }
+    var cnt = w.count || (w.more && w.more.length ? w.more.length + 1 : 0);
+    if (cnt) { var tg = document.createElement('em'); tg.className = 'row__count'; tg.textContent = cnt + (w.count ? (cnt === 1 ? ' spot' : ' spots') : ' films'); t.appendChild(tg); }
     a.appendChild(t);
     var ar = document.createElement('span'); ar.className = 'row__arrow'; ar.setAttribute('aria-hidden', 'true'); ar.textContent = '→'; a.appendChild(ar);
-    a.addEventListener('click', function (e) { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); openProject(w, true); });
+    if (!w.href) a.addEventListener('click', function (e) { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); openProject(w, true); });
     rows.appendChild(a);
     var it = document.createElement('div'); it.className = 'preview__item'; it.appendChild(U.pic(w, w.vimeo ? '' : 'Preview loop · Vimeo')); pv.appendChild(it);
   });
@@ -265,9 +273,9 @@
   function loadVideos() {
     if (loaded) return; loaded = true;
     items.forEach(function (it, k) {
-      var src = U.vimeoSrc(T.video[k].vimeo, 'bg'); if (!src) return;
+      var src = U.vimeoSrc(rowList[k].vimeo, 'bg'); if (!src) return;
       var f = document.createElement('iframe'); f.src = src; f.allow = 'autoplay'; f.tabIndex = -1; f.title = '';
-      if (T.video[k].ar < 1) f.style.height = (16 / 9 / T.video[k].ar * 100).toFixed(1) + '%'; /* vertical film: fill the wide preview instead of letterboxing */
+      if (rowList[k].ar < 1) f.style.height = (16 / 9 / rowList[k].ar * 100).toFixed(1) + '%'; /* vertical film: fill the wide preview instead of letterboxing */
       f.addEventListener('load', function () { if (k !== act) vcmd(f, 'pause'); setTimeout(function () { f.classList.add('ready'); }, 900); });
       it.appendChild(f);
     });
