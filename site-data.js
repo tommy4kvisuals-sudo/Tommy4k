@@ -161,21 +161,21 @@ window.T4K = {
       vimeo: 'https://vimeo.com/1248952762/21bb0b69f1',
       poster: 'https://i.vimeocdn.com/video/2229185895-1c25177d1604d4b7d02b7eab5d8d2edfdbd55cc678565133416580c7b79baa1c-d?f=webp&region=us', look: [30, 40, 0.5, 160],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
-      credits: [['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
+      credits: [['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Mikey Newell']]
     },
     {
       slug: 'holiday-teaser', name: 'Holiday Teaser', type: 'Holiday spot', ar: 16 / 9,
       vimeo: 'https://vimeo.com/1248952761/dfa46cf371',
       poster: 'https://i.vimeocdn.com/video/2229187780-67fcae4d578fa7d2ef45177c1c71817ae8ed72b13cc937daef8add02f47e7f6a-d?f=webp&region=us', look: [64, 30, 0.48, 150],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
-      credits: [['Client', 'Yummy Extensions'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
+      credits: [['Client', 'Yummy Extensions'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Mikey Newell']]
     },
     {
       slug: 'campaign-spot', name: 'Campaign Spot', type: 'Voiceover spot', ar: 16 / 9,
       vimeo: 'https://vimeo.com/1248952755/ab4915eba0',
       poster: 'https://i.vimeocdn.com/video/2229187108-502336631654a4a89835901fee4dde5b8fe2808bf1dbb2168043d5ecbb52aed3-d?f=webp&region=us', look: [44, 62, 0.52, 190],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
-      credits: [['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
+      credits: [['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Mikey Newell']]
     },
     {
       slug: 'womens-history-month', name: "Women's History Month", type: 'Featuring Miss Texas', ar: 9 / 16,
