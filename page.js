@@ -28,6 +28,13 @@
     }, { once: true });
   });
 
+  /* next project: a still of the next film, revealed on hover */
+  document.querySelectorAll('.pnext[data-next]').forEach(function (a) {
+    var n = U.find(a.getAttribute('data-next')), t = a.querySelector('.pnext__thumb'); if (!n || !t) return;
+    t.appendChild(U.pic(n, '', base));
+    if (n.focus) { var im = t.querySelector('img'); if (im) im.style.objectPosition = n.focus; }
+  });
+
   /* series: a client's other films under the main one, each plays in place */
   function filmButton(f, w, cls) {
     var b = document.createElement('button'); b.type = 'button'; b.className = 'film ' + (cls || '');
