@@ -54,7 +54,7 @@ window.T4K = {
     },
     {
       slug: 'fenty-beauty', name: 'Fenty Beauty', type: 'Campaign',
-      vimeo: '', poster: '', look: [32, 30, .56, 140],
+      vimeo: 'https://vimeo.com/1248836241', poster: 'media/posters/fenty-beauty.jpg', look: [32, 30, .56, 140],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
       credits: [['Client', 'Fenty Beauty'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     },
