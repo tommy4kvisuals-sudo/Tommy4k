@@ -121,7 +121,7 @@ window.T4K = {
     {
       slug: 'microsoft-365', name: 'Microsoft 365', type: 'Creator partnership',
       vimeo: 'https://vimeo.com/1248949686/0b8417583e',
-      poster: 'media/posters/microsoft-365.jpg', look: [40, 40, .5, 130],
+      poster: 'media/posters/microsoft-365.jpg', focus: '50% 40%', look: [40, 40, .5, 130],
       about: ['Write-up coming soon: what the partnership was and how the piece came together.'],
       credits: [['Brand', 'Microsoft 365'], ['Creator', 'Tommy Omolabi']]
     }
