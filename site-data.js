@@ -155,6 +155,55 @@ window.T4K = {
       poster: 'media/posters/remedy.jpg', focus: '50% 40%', look: [84, 46, .5, 170],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
       credits: [['Client', 'Remedy'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
+    },
+    {
+      slug: 'new-years-campaign', name: "New Year's Campaign", type: 'Holiday campaign', ar: 16 / 9,
+      vimeo: 'https://vimeo.com/1248952762/21bb0b69f1',
+      poster: 'https://i.vimeocdn.com/video/2229185895-1c25177d1604d4b7d02b7eab5d8d2edfdbd55cc678565133416580c7b79baa1c-d?f=webp&region=us', look: [30, 40, 0.5, 160],
+      about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
+      credits: [['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
+    },
+    {
+      slug: 'campaign-teaser', name: 'Campaign Teaser', type: 'Teaser with voiceover', ar: 16 / 9,
+      vimeo: 'https://vimeo.com/1248952761/dfa46cf371',
+      poster: 'https://i.vimeocdn.com/video/2229187780-67fcae4d578fa7d2ef45177c1c71817ae8ed72b13cc937daef8add02f47e7f6a-d?f=webp&region=us', look: [64, 30, 0.48, 150],
+      about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
+      credits: [['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
+    },
+    {
+      slug: 'campaign-spot', name: 'Campaign Spot', type: 'Voiceover spot', ar: 16 / 9,
+      vimeo: 'https://vimeo.com/1248952755/ab4915eba0',
+      poster: 'https://i.vimeocdn.com/video/2229187108-502336631654a4a89835901fee4dde5b8fe2808bf1dbb2168043d5ecbb52aed3-d?f=webp&region=us', look: [44, 62, 0.52, 190],
+      about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
+      credits: [['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
+    },
+    {
+      slug: 'brand-spot', name: 'Brand Spot', type: 'Social spot', ar: 9 / 16,
+      vimeo: 'https://vimeo.com/1115654599/72d34b8732',
+      poster: 'https://i.vimeocdn.com/video/2055057031-0793f47e26adcb6c754bef33800a3e86800e91062ded73fa2000a46e9b27258a-d?f=webp&region=us', look: [70, 50, 0.5, 140],
+      about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
+      credits: [['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
+    },
+    {
+      slug: 'welcome-dinner-recap', name: 'Welcome Dinner Recap', type: 'Event recap', ar: 9 / 16,
+      vimeo: 'https://vimeo.com/1115638529/e74c1cd02f',
+      poster: 'https://i.vimeocdn.com/video/2055045042-8089667b0857f7f0b1f143c39fca2555cf54b89565d144e0edd7c4e33f892eba-d?f=webp&region=us', look: [36, 30, 0.56, 175],
+      about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
+      credits: [['Client', 'Shea Moisture'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
+    },
+    {
+      slug: 'product-grid', name: 'Product Grid', type: 'Social ad', ar: 4 / 5,
+      vimeo: 'https://vimeo.com/1115638001/0eab51a7e9',
+      poster: 'https://i.vimeocdn.com/video/2055036201-057dd143f002e0dcbc7675b241eede28fe9cb89d36557ad294e1cf2571e39a83-d?f=webp&region=us', look: [58, 70, 0.46, 200],
+      about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
+      credits: [['Client', 'Shea Moisture'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
+    },
+    {
+      slug: 'hair-oil-spot', name: 'Hair Oil Spot', type: 'Product spot', ar: 9 / 16,
+      vimeo: 'https://vimeo.com/1115632012/fc66f59577',
+      poster: 'https://i.vimeocdn.com/video/2055047937-7b0e733f066ac7e9e3e38cb786b61c3327fa0bfb17fd711d0a1a191569454ab6-d?f=webp&region=us', look: [50, 36, 0.54, 165],
+      about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
+      credits: [['Client', 'Shea Moisture'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     }
   ]
 };
