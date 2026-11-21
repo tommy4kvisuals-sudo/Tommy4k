@@ -178,11 +178,11 @@ window.T4K = {
       credits: [['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     },
     {
-      slug: 'brand-spot', name: 'Brand Spot', type: 'Social spot', ar: 9 / 16,
+      slug: 'womens-history-month', name: "Women's History Month", type: 'Featuring Miss Texas', ar: 9 / 16,
       vimeo: 'https://vimeo.com/1115654599/72d34b8732',
       poster: 'https://i.vimeocdn.com/video/2055057031-0793f47e26adcb6c754bef33800a3e86800e91062ded73fa2000a46e9b27258a-d?f=webp&region=us', look: [70, 50, 0.5, 140],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
-      credits: [['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
+      credits: [['Talent', 'Miss Texas'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     },
     {
       slug: 'welcome-dinner-recap', name: 'Welcome Dinner Recap', type: 'Event recap', ar: 9 / 16,
