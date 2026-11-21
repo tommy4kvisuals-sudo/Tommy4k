@@ -93,7 +93,7 @@ window.T4K = {
   creator: [
     {
       slug: 'microsoft-surface', name: 'Microsoft Surface', type: 'Creator partnership',
-      vimeo: '', poster: '', look: [60, 22, .5, 170],
+      vimeo: 'https://vimeo.com/1248837865', poster: 'media/posters/microsoft-surface.jpg', look: [60, 22, .5, 170],
       about: ['Write-up coming soon: what the partnership was and how the piece came together.'],
       credits: [['Brand', 'Microsoft Surface'], ['Creator', 'Tommy Omolabi']]
     },
