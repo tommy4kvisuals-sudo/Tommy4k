@@ -78,7 +78,7 @@ window.T4K = {
       slug: 'lorvae', name: 'Lorvae', type: 'Brand film',
       vimeo: 'https://vimeo.com/1248829503', poster: 'media/posters/lorvae.jpg', look: [66, 70, .48, 210],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
-      credits: [['Client', 'Lorvae'], ['Director / DP / Editor', 'Tommy Omolabi'], ['Creative director', 'Mia Denean|miadenean'], ['1st AC', 'DayJon Bacon|d_baconboy'], ['Grip & electric', 'Tony Nava|navuh.co, Creed Smith|directorcreed']]
+      credits: [['Client', 'Lorvae'], ['Director/DP/Edit', 'Tommy Omolabi'], ['Creative director', 'Mia Denean|miadenean'], ['1st AC', 'DayJon Bacon|d_baconboy'], ['Grip & electric', 'Tony Nava|navuh.co, Creed Smith|directorcreed']]
     },
     {
       slug: 'be-eyeconic', name: 'Be Eyeconic', type: 'Brand film', ar: 9 / 16,

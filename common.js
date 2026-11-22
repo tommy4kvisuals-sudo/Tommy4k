@@ -71,8 +71,16 @@
   }
   /* the pop-up on the home page shows the key crew; the project page lists everyone */
   function keyCredits(list) {
-    var order = [/client|brand/i, /director|\bdp\b|creator/i, /producer/i, /1st ac/i, /gaffer/i, /edit/i, /art/i];
-    function rank(r) { for (var i = 0; i < order.length; i++) if (order[i].test(r)) return i; return -1; }
+    function rank(r) {
+      if (/client|brand/i.test(r)) return 0;
+      if (/art|creative|set design|production design/i.test(r)) return 6;
+      if (/director|\bdp\b|creator/i.test(r)) return 1;
+      if (/producer/i.test(r)) return 2;
+      if (/1st ac/i.test(r)) return 3;
+      if (/gaffer/i.test(r)) return 4;
+      if (/edit/i.test(r)) return 5;
+      return -1;
+    }
     return mergeCredits(list).map(function (c, i) { return { c: c, r: rank(c[0]), i: i }; })
       .filter(function (x) { return x.r >= 0; })
       .sort(function (a, b) { return a.r - b.r || a.i - b.i; })
