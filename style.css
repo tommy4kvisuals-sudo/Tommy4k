@@ -376,18 +376,23 @@ html.is-preloading .reel h1 .reel__mark { animation-play-state: paused; }
 .msg { position: fixed; right: max(18px, env(safe-area-inset-right, 0px)); bottom: max(18px, env(safe-area-inset-bottom, 0px)); z-index: 70; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; pointer-events: none; }
 .msg > * { pointer-events: auto; }
 .msg__pill {
-  display: flex; align-items: center; gap: 12px; padding: 6px 6px 6px 22px; border: 0; border-radius: 999px; cursor: pointer;
+  display: flex; align-items: center; gap: 12px; padding: 6px 22px 6px 6px; border: 0; border-radius: 999px; cursor: pointer;
   background: var(--fg); color: var(--bg); box-shadow: 0 18px 40px -14px rgba(5, 9, 22, .75);
   transform: translateY(140%); opacity: 0; transition: transform .7s var(--ease), opacity .5s, box-shadow .3s, padding .5s var(--ease);
 }
 .msg.in .msg__pill { transform: none; opacity: 1; }
 .msg__txt { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; max-width: 180px; transition: max-width .5s var(--ease), opacity .3s; }
 .msg__go { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--bg); color: var(--fg); transition: transform .45s var(--ease); }
-.msg__go svg { width: 18px; height: 18px; }
+.msg__go { position: relative; }
+.msg__go svg { position: absolute; width: 19px; height: 19px; transition: transform .45s var(--ease), opacity .3s; }
+.msg__go .i-x { opacity: 0; transform: rotate(-90deg) scale(.6); }
+.msg.open .msg__go .i-mail { opacity: 0; transform: scale(.6); }
+.msg.open .msg__go .i-x { opacity: 1; transform: none; }
+.msg__go .flap { transition: d .35s var(--ease); }
 .msg__pill:hover { box-shadow: 0 22px 50px -14px rgba(5, 9, 22, .9); }
-.msg__pill:hover .msg__go { transform: rotate(-45deg); }
-.msg.open .msg__go { transform: rotate(90deg); }
-.msg.mini:not(.open) .msg__pill { padding-left: 6px; gap: 0; }
+.msg__pill:hover .msg__go { transform: rotate(-8deg) scale(1.06); }
+.msg__pill:hover .flap { d: path("M4 7.5l8 -3 8 3"); }
+.msg.mini:not(.open) .msg__pill { padding-right: 6px; gap: 0; }
 .msg.mini:not(.open) .msg__txt { max-width: 0; opacity: 0; }
 .msg.away:not(.open) .msg__pill, .sheet.open ~ .msg .msg__pill, html.is-preloading .msg__pill { transform: translateY(140%); opacity: 0; pointer-events: none; }
 

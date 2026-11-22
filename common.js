@@ -133,7 +133,6 @@
   var T = window.T4K || {}, to = ((T.contact || {}).email || '').trim();
   var live = /(^|\.)tommy4k\.com$|\.netlify\.app$|\.github\.io$/.test(location.hostname);
   var KEY = 't4k-msg';
-  var arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   function field(id, label, attrs, full) {
     return '<div class="msg__f' + (full ? ' full' : '') + '"><label for="m-' + id + '">' + label + '</label>' +
       (id === 'details' ? '<textarea id="m-' + id + '" name="' + id + '" rows="4"' + attrs + '></textarea>' : '<input id="m-' + id + '" name="' + id + '"' + attrs + '>') + '</div>';
@@ -156,7 +155,9 @@
       '<a class="msg__mail" href="mailto:' + to + '">Or email ' + to + '</a>' +
     '</div>' +
     '<button class="msg__pill" type="button" aria-expanded="false" aria-controls="msgPanel">' +
-      '<span class="msg__txt">Send me a message</span><span class="msg__go">' + arrow + '</span>' +
+      '<span class="msg__go"><svg class="i-mail" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.9"/><path class="flap" d="M4 7.5l8 5.5 8-5.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+        '<svg class="i-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>' +
+      '<span class="msg__txt">Send me a message</span>' +
     '</button>';
   document.body.appendChild(w);
 
