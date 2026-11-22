@@ -56,7 +56,29 @@
       else dd.appendChild(document.createTextNode(item));
     });
   }
-  window.T4KUtil = { creditInto: creditInto, reduce: reduce, canEmbed: canEmbed, vimeo: vimeo, vimeoSrc: vimeoSrc, lookStyle: lookStyle, pic: pic, find: find };
+  /* roles one person holds are shown once: "Director / DP / Edit  Tommy Omolabi" */
+  function mergeCredits(list) {
+    var out = [], idx = {};
+    (list || []).forEach(function (c) {
+      var who = String(c[1]).trim();
+      if (who in idx) { out[idx[who]][0].push(c[0]); return; }
+      idx[who] = out.length; out.push([[c[0]], c[1]]);
+    });
+    return out.map(function (c) {
+      var roles = c[0].length > 1 ? c[0].map(function (r) { return r === 'Editor' ? 'Edit' : r; }) : c[0];
+      return [roles.join('/'), c[1]];
+    });
+  }
+  /* the pop-up on the home page shows the key crew; the project page lists everyone */
+  function keyCredits(list) {
+    var order = [/client|brand/i, /director|\bdp\b|creator/i, /producer/i, /1st ac/i, /gaffer/i, /edit/i, /art/i];
+    function rank(r) { for (var i = 0; i < order.length; i++) if (order[i].test(r)) return i; return -1; }
+    return mergeCredits(list).map(function (c, i) { return { c: c, r: rank(c[0]), i: i }; })
+      .filter(function (x) { return x.r >= 0; })
+      .sort(function (a, b) { return a.r - b.r || a.i - b.i; })
+      .map(function (x) { return x.c; });
+  }
+  window.T4KUtil = { mergeCredits: mergeCredits, keyCredits: keyCredits, creditInto: creditInto, reduce: reduce, canEmbed: canEmbed, vimeo: vimeo, vimeoSrc: vimeoSrc, lookStyle: lookStyle, pic: pic, find: find };
 
   /* grain: a handful of film-like frames swapped about 12 times a second, so it flickers in place */
   (function () {
