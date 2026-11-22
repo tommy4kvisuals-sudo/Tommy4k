@@ -145,7 +145,7 @@ html.name-intro header.site .brand__name { opacity: 0; transform: scale(.6); tra
 html.name-intro.name-done header.site .brand__name { opacity: 1; transform: none; }
 @media (min-width: 761px) { html.name-done .reel h1 { visibility: hidden; } }
 @keyframes up { from { transform: translateY(40%); opacity: 0; } to { transform: none; opacity: 1; } }
-.reel__tc { position: absolute; right: clamp(18px, 2vw, 28px); bottom: clamp(18px, 2vw, 28px); font-family: var(--mono); font-size: 12px; letter-spacing: .08em; color: var(--fg-dim); font-variant-numeric: tabular-nums; }
+.reel__tc { position: absolute; left: clamp(18px, 2vw, 28px); bottom: clamp(18px, 2vw, 28px); font-family: var(--mono); font-size: 12px; letter-spacing: .08em; color: var(--fg-dim); font-variant-numeric: tabular-nums; }
 .reel__sub { position: absolute; left: clamp(18px, 2vw, 28px); bottom: clamp(18px, 2vw, 28px); font-size: 14px; color: var(--fg-dim); max-width: 32ch; }
 @media (max-width: 760px) {
   .hero { padding: 5px; }
