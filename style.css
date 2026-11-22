@@ -375,64 +375,47 @@ html.is-preloading .reel h1 .reel__mark { animation-play-state: paused; }
 /* ---------- "Send me a message" (floating on every page) ---------- */
 .msg { position: fixed; right: max(18px, env(safe-area-inset-right, 0px)); bottom: max(18px, env(safe-area-inset-bottom, 0px)); z-index: 70; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; pointer-events: none; }
 .msg > * { pointer-events: auto; }
-.msg__av { position: relative; flex: none; width: 38px; height: 38px; }
-.msg__av img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
-.msg__av i { position: absolute; right: -1px; bottom: -1px; width: 11px; height: 11px; border-radius: 50%; background: #5fd38a; box-shadow: 0 0 0 2px var(--fg); }
-.msg__av i::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: #5fd38a; animation: msgPing 2.4s ease-out infinite; }
-@keyframes msgPing { 0% { transform: scale(1); opacity: .7; } 70%, 100% { transform: scale(2.6); opacity: 0; } }
-
 .msg__pill {
-  display: flex; align-items: center; gap: 12px; padding: 6px 6px 6px 6px; border: 0; border-radius: 999px; cursor: pointer;
-  background: var(--fg); color: var(--bg); box-shadow: 0 18px 40px -14px rgba(5, 9, 22, .75), 0 0 0 1px rgba(25, 39, 76, .08);
-  transform: translateY(140%); opacity: 0; transition: transform .7s var(--ease), opacity .5s, box-shadow .3s;
+  display: flex; align-items: center; gap: 12px; padding: 6px 6px 6px 22px; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--fg); color: var(--bg); box-shadow: 0 18px 40px -14px rgba(5, 9, 22, .75);
+  transform: translateY(140%); opacity: 0; transition: transform .7s var(--ease), opacity .5s, box-shadow .3s, padding .5s var(--ease);
 }
 .msg.in .msg__pill { transform: none; opacity: 1; }
-.msg__txt { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; max-width: 180px; transition: max-width .5s var(--ease), opacity .3s, margin .5s var(--ease); }
+.msg__txt { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; max-width: 180px; transition: max-width .5s var(--ease), opacity .3s; }
 .msg__go { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--bg); color: var(--fg); transition: transform .45s var(--ease); }
-.msg__go svg, .msg__send svg { width: 18px; height: 18px; }
-.msg__pill:hover { box-shadow: 0 22px 50px -14px rgba(5, 9, 22, .9), 0 0 0 1px rgba(25, 39, 76, .08); }
+.msg__go svg { width: 18px; height: 18px; }
+.msg__pill:hover { box-shadow: 0 22px 50px -14px rgba(5, 9, 22, .9); }
 .msg__pill:hover .msg__go { transform: rotate(-45deg); }
 .msg.open .msg__go { transform: rotate(90deg); }
-.msg.mini:not(.open) .msg__txt, .msg.mini:not(.open) .msg__go { max-width: 0; opacity: 0; margin-left: -12px; }
-.msg.mini:not(.open) .msg__go { width: 0; }
+.msg.mini:not(.open) .msg__pill { padding-left: 6px; gap: 0; }
+.msg.mini:not(.open) .msg__txt { max-width: 0; opacity: 0; }
 .msg.away:not(.open) .msg__pill, .sheet.open ~ .msg .msg__pill, html.is-preloading .msg__pill { transform: translateY(140%); opacity: 0; pointer-events: none; }
 
 .msg__panel {
-  width: min(380px, calc(100vw - 36px)); max-height: min(640px, calc(100dvh - 110px)); display: flex; flex-direction: column; overflow: hidden;
+  width: min(400px, calc(100vw - 36px)); max-height: min(680px, calc(100dvh - 110px)); display: flex; flex-direction: column; overflow-y: auto; overscroll-behavior: contain;
   background: var(--fg); color: var(--bg); border-radius: 26px; box-shadow: 0 40px 90px -20px rgba(5, 9, 22, .85);
   transform-origin: 100% 100%; transform: translateY(16px) scale(.92); opacity: 0; visibility: hidden;
   transition: transform .5s var(--ease), opacity .35s, visibility 0s .5s;
 }
 .msg.open .msg__panel { transform: none; opacity: 1; visibility: visible; transition: transform .5s var(--ease), opacity .35s; }
-.msg__top { display: flex; align-items: center; gap: 12px; padding: 16px 16px 14px 18px; border-bottom: 1px solid rgba(25, 39, 76, .12); }
-.msg__who { display: grid; line-height: 1.25; min-width: 0; }
-.msg__who b { font-size: 15px; }
-.msg__who span { font-size: 12.5px; color: rgba(25, 39, 76, .62); }
-.msg__x { margin-left: auto; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(25, 39, 76, .08); color: var(--bg); font-size: 22px; line-height: 1; cursor: pointer; transition: background .2s; }
+.msg__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 22px 18px 6px 22px; }
+.msg__top b { font-size: 26px; }
+.msg__x { width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(25, 39, 76, .08); color: var(--bg); font-size: 22px; line-height: 1; cursor: pointer; transition: background .2s; }
 .msg__x:hover { background: rgba(25, 39, 76, .16); }
-.msg__body { padding: 18px; overflow-y: auto; overscroll-behavior: contain; display: grid; gap: 14px; }
-.msg__bubble { justify-self: start; max-width: 88%; padding: 12px 15px; border-radius: 18px 18px 18px 6px; background: var(--bg); color: var(--fg); font-size: 14.5px; line-height: 1.45; animation: msgBubble .5s var(--ease) .15s backwards; }
-.msg__bubble--you { justify-self: end; border-radius: 18px 18px 6px 18px; background: rgba(25, 39, 76, .1); color: var(--bg); white-space: pre-wrap; animation-delay: 0s; }
-.msg__done { display: grid; gap: 10px; }
-.msg__done .msg__bubble:last-child { animation-delay: .5s; }
-@keyframes msgBubble { from { opacity: 0; transform: translateY(8px) scale(.96); } }
-.msg__form { display: grid; gap: 10px; }
-.msg__q { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; font-family: var(--mono); color: rgba(25, 39, 76, .6); margin-top: 2px; }
-.msg__chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
-.msg__chip { padding: 7px 12px; border-radius: 999px; border: 1px solid rgba(25, 39, 76, .22); background: transparent; color: var(--bg); font-size: 13px; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
-.msg__chip:hover { border-color: var(--bg); }
-.msg__chip[aria-pressed="true"] { background: var(--bg); color: var(--fg); border-color: var(--bg); }
-.msg input, .msg textarea { color: var(--bg); background: rgba(255, 255, 255, .45); border: 1px solid rgba(25, 39, 76, .16); border-radius: 14px; padding: 12px 14px; font-size: 16px; resize: none; }
-.msg textarea { min-height: 0; padding-right: 58px; }
-.msg input::placeholder, .msg textarea::placeholder { color: rgba(25, 39, 76, .48); }
-.msg input:focus, .msg textarea:focus { border-color: var(--bg); background: rgba(255, 255, 255, .7); }
-.msg__compose { position: relative; }
-.msg__send { position: absolute; right: 8px; bottom: 9px; width: 40px; height: 40px; border-radius: 50%; border: 0; display: grid; place-items: center; background: var(--bg); color: var(--fg); cursor: pointer; transition: transform .3s var(--ease), opacity .2s; }
-.msg__send:hover { transform: rotate(-45deg); }
+.msg__form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 16px 22px 8px; }
+.msg__f { display: grid; gap: 6px; min-width: 0; }
+.msg__f.full { grid-column: 1 / -1; }
+.msg label { color: rgba(25, 39, 76, .66); font-size: 12.5px; }
+.msg input, .msg textarea { color: var(--bg); background: transparent; border: 1px solid rgba(25, 39, 76, .2); border-radius: 14px; padding: 11px 14px; font-size: 16px; resize: none; }
+.msg textarea { min-height: 0; }
+.msg input:focus, .msg textarea:focus { border-color: var(--bg); }
+.msg__sub { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 4px; }
+.msg__status { font-size: 13px; color: #8a3b2e; }
+.msg__send { margin-left: auto; padding: 13px 26px; border-radius: 999px; border: 0; background: var(--bg); color: var(--fg); font-size: 14px; font-weight: 600; cursor: pointer; transition: opacity .2s; }
+.msg__send:hover { opacity: .85; }
 .msg__send:disabled { opacity: .5; }
-.msg__status { font-size: 13px; color: #8a3b2e; min-height: 0; }
-.msg__status:empty { display: none; }
-.msg__mail { padding: 12px 18px 16px; font-size: 12.5px; color: rgba(25, 39, 76, .6); border-top: 1px solid rgba(25, 39, 76, .1); }
+.msg__done { padding: 18px 22px 8px; font-size: 16px; }
+.msg__mail { padding: 14px 22px 20px; font-size: 12.5px; color: rgba(25, 39, 76, .6); }
 .msg__mail:hover { color: var(--bg); }
 .msg :focus-visible { outline-color: var(--bg); }
 footer.site { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 88px); }
