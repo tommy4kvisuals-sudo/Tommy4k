@@ -193,8 +193,8 @@ window.T4K = {
     },
     {
       slug: 'product-grid', name: 'Product Grid', type: 'Social ad', ar: 4 / 5,
-      vimeo: 'https://vimeo.com/1115638001/0eab51a7e9',
-      poster: 'https://i.vimeocdn.com/video/2055036201-057dd143f002e0dcbc7675b241eede28fe9cb89d36557ad294e1cf2571e39a83-d?f=webp&region=us', look: [58, 70, 0.46, 200],
+      vimeo: 'https://vimeo.com/1115638001',
+      poster: 'media/posters/product-grid.jpg', look: [58, 70, 0.46, 200],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
       credits: [['Client', 'Shea Moisture'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     },
