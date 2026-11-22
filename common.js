@@ -127,3 +127,101 @@
   }
   window.T4KUtil.setSheet = setSheet;
 })();
+
+/* ---------- "Send me a message": a small chat-style enquiry that stays on every page ---------- */
+(function () {
+  var me = document.currentScript, base = me ? me.src.replace(/common\.js.*$/, '') : '';
+  var T = window.T4K || {}, to = ((T.contact || {}).email || '').trim();
+  var live = /(^|\.)tommy4k\.com$|\.netlify\.app$|\.github\.io$/.test(location.hostname);
+  var KEY = 't4k-msg', av = base + 'media/tommy-avatar.jpg';
+  var TYPES = ['Commercial', 'Content creation', 'Social spots', 'Documentary', 'Something else'];
+  var send = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  var w = document.createElement('div'); w.className = 'msg'; w.id = 'msg';
+  w.innerHTML =
+    '<div class="msg__panel" id="msgPanel" role="dialog" aria-labelledby="msgWho" aria-hidden="true">' +
+      '<div class="msg__top"><span class="msg__av"><img src="' + av + '" alt=""><i></i></span>' +
+        '<div class="msg__who"><b id="msgWho">Tommy Omolabi</b><span>Director &amp; DP · Atlanta</span></div>' +
+        '<button class="msg__x" type="button" aria-label="Close">&times;</button></div>' +
+      '<div class="msg__body">' +
+        '<p class="msg__bubble">Hey, I\'m Tommy. Tell me what you\'re making and I\'ll get back to you personally.</p>' +
+        '<form class="msg__form" novalidate>' +
+          '<p hidden><label>Leave this empty <input name="_honey" tabindex="-1" autocomplete="off"></label></p>' +
+          '<div class="msg__q">What are you making?</div>' +
+          '<div class="msg__chips">' + TYPES.map(function (t) { return '<button type="button" class="msg__chip" aria-pressed="false">' + t + '</button>'; }).join('') + '</div>' +
+          '<input name="who" placeholder="Your name" autocomplete="name" aria-label="Your name" required>' +
+          '<input name="email" type="email" placeholder="Email" autocomplete="email" aria-label="Email" required>' +
+          '<div class="msg__compose"><textarea name="message" rows="3" placeholder="Tell me about the project…" aria-label="Message" required></textarea>' +
+          '<button class="msg__send" type="submit" aria-label="Send">' + send + '</button></div>' +
+          '<p class="msg__status" role="status"></p>' +
+        '</form>' +
+        '<div class="msg__done" hidden></div>' +
+      '</div>' +
+      '<a class="msg__mail" href="mailto:' + to + '">Prefer email? ' + to + '</a>' +
+    '</div>' +
+    '<button class="msg__pill" type="button" aria-expanded="false" aria-controls="msgPanel">' +
+      '<span class="msg__av"><img src="' + av + '" alt=""><i></i></span>' +
+      '<span class="msg__txt">Send me a message</span>' +
+      '<span class="msg__go">' + send + '</span>' +
+    '</button>';
+  document.body.appendChild(w);
+
+  var pill = w.querySelector('.msg__pill'), panel = w.querySelector('.msg__panel'), form = w.querySelector('form');
+  var st = w.querySelector('.msg__status'), done = w.querySelector('.msg__done'), chips = [].slice.call(w.querySelectorAll('.msg__chip'));
+  var bubble = w.querySelector('.msg__bubble');
+
+  /* keep what they've typed while they move between pages */
+  function save() { try { localStorage.setItem(KEY, JSON.stringify({ n: form.elements.who.value, e: form.email.value, m: form.message.value, t: type() })); } catch (_) {} }
+  function type() { var c = chips.filter(function (b) { return b.getAttribute('aria-pressed') === 'true'; })[0]; return c ? c.textContent : ''; }
+  function pick(t) { chips.forEach(function (b) { b.setAttribute('aria-pressed', b.textContent === t); }); }
+  try { var d = JSON.parse(localStorage.getItem(KEY) || 'null'); if (d) { form.elements.who.value = d.n || ''; form.email.value = d.e || ''; form.message.value = d.m || ''; pick(d.t); } } catch (_) {}
+  chips.forEach(function (b) { b.addEventListener('click', function () { pick(b.getAttribute('aria-pressed') === 'true' ? '' : b.textContent); save(); }); });
+  form.addEventListener('input', save);
+
+  function open(o) {
+    w.classList.toggle('open', o); pill.setAttribute('aria-expanded', o); panel.setAttribute('aria-hidden', !o);
+    if (o) setTimeout(function () { (done.hidden ? (form.elements.who.value ? form.message : form.elements.who) : w.querySelector('.msg__x')).focus({ preventScroll: true }); }, 250);
+  }
+  pill.addEventListener('click', function () { open(!w.classList.contains('open')); });
+  w.querySelector('.msg__x').addEventListener('click', function () { open(false); pill.focus(); });
+  addEventListener('keydown', function (e) { if (e.key === 'Escape' && w.classList.contains('open')) { open(false); pill.focus(); } });
+  document.addEventListener('pointerdown', function (e) { if (w.classList.contains('open') && !w.contains(e.target)) open(false); });
+  /* any "Get in touch" / "Contact" link can open it with data-msg */
+  document.addEventListener('click', function (e) { var a = e.target.closest && e.target.closest('[data-msg]'); if (a) { e.preventDefault(); open(true); } });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var miss = [form.elements.who, form.email, form.message].filter(function (f) { return !f.value.trim(); });
+    if (miss.length) { st.textContent = 'Add your name, email and a quick note.'; miss[0].focus(); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value.trim())) { st.textContent = 'Check your email address.'; form.email.focus(); return; }
+    var name = form.elements.who.value.trim(), first = name.split(/\s+/)[0];
+    function finish() {
+      form.hidden = true; bubble.hidden = true; done.hidden = false;
+      done.innerHTML = '<p class="msg__bubble msg__bubble--you"></p><p class="msg__bubble">Got it, ' + first.replace(/[<>&"]/g, '') + '. It\'s in my inbox and I\'ll be in touch soon.</p>';
+      done.firstChild.textContent = form.message.value.trim();
+      form.reset(); pick(''); try { localStorage.removeItem(KEY); } catch (_) {}
+    }
+    if (form._honey.value) { finish(); return; }
+    if (!live || !to) { st.textContent = 'Preview only: nothing was sent. On the live site this goes straight to my inbox.'; return; }
+    var btn = form.querySelector('.msg__send'); btn.disabled = true; st.textContent = 'Sending…';
+    fetch('https://formsubmit.co/ajax/' + encodeURIComponent(to), {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        'Name': name, 'Email': form.email.value.trim(), 'Project type': type() || '-', 'Message': form.message.value.trim(),
+        'Sent from': location.pathname.replace(/^.*\//, '/') || '/',
+        _replyto: form.email.value.trim(), _subject: 'New message from tommy4k.com: ' + name, _template: 'table', _captcha: 'false'
+      })
+    })
+      .then(function (r) { return r.json().then(function (j) { if (!r.ok || String(j.success) === 'false') throw 0; }); })
+      .then(function () { st.textContent = ''; finish(); })
+      .catch(function () { st.textContent = 'That didn\'t send. Email me at ' + to + '.'; })
+      .then(function () { btn.disabled = false; });
+  });
+
+  /* step aside when the full contact form is on screen, shrink to the face while scrolling down on phones */
+  var c = document.getElementById('contact');
+  if (c && 'IntersectionObserver' in window) new IntersectionObserver(function (es) { w.classList.toggle('away', es[0].isIntersecting && !w.classList.contains('open')); }, { threshold: .25 }).observe(c);
+  var y0 = scrollY;
+  addEventListener('scroll', function () { var y = scrollY; if (Math.abs(y - y0) > 6) { w.classList.toggle('mini', y > y0 && y > 300); y0 = y; } }, { passive: true });
+  setTimeout(function () { w.classList.add('in'); }, 900);
+})();
