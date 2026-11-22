@@ -68,8 +68,8 @@ window.T4K = {
     },
     {
       slug: 'aston-martin', name: 'Aston Martin', type: 'Brand film',
-      vimeo: 'https://vimeo.com/1034671966/4872294b71',
-      poster: 'https://i.vimeocdn.com/video/1956034628-f997e7887835b2efd2c37cc786f45fbd75264e72f11b745bdf82f83bd6a591e2-d?f=webp&region=us',
+      vimeo: 'https://vimeo.com/1034671966',
+      poster: 'media/posters/aston-martin.jpg',
       look: [24, 62, .42, 200],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
       credits: [['Client', 'Aston Martin'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
@@ -139,11 +139,11 @@ window.T4K = {
     },
     {
       slug: 'anitas-story', name: "Anita's Story", type: 'Mini-doc', ar: 9 / 16,
-      vimeo: 'https://vimeo.com/1115631572/0c8397b701',
-      poster: 'https://i.vimeocdn.com/video/2055048960-39ee791432e17ad1909978e9a365376d96ca72171056c4d74eba099a72a7efb0-d?f=webp&region=us',
+      vimeo: 'https://vimeo.com/1115631572',
+      poster: 'media/posters/anitas-story.jpg',
       look: [70, 30, .44, 200],
       about: ['Write-up coming soon: a couple of lines about the story and how it was made.'],
-      credits: [['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
+      credits: [['Client', 'NeuroSolutions Center of Atlanta'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     }
   ],
 
@@ -179,10 +179,10 @@ window.T4K = {
     },
     {
       slug: 'womens-history-month', name: "Women's History Month", type: 'Featuring Miss Texas', ar: 9 / 16,
-      vimeo: 'https://vimeo.com/1115654599/72d34b8732',
-      poster: 'https://i.vimeocdn.com/video/2055057031-0793f47e26adcb6c754bef33800a3e86800e91062ded73fa2000a46e9b27258a-d?f=webp&region=us', look: [70, 50, 0.5, 140],
+      vimeo: 'https://vimeo.com/1115654599',
+      poster: 'media/posters/womens-history-month.jpg', look: [70, 50, 0.5, 140],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
-      credits: [['Talent', 'Miss Texas'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
+      credits: [['Client', 'Yummy Extensions'], ['Talent', 'Miss Texas'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     },
     {
       slug: 'welcome-dinner-recap', name: 'Welcome Dinner Recap', type: 'Event recap', ar: 9 / 16,
