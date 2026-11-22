@@ -192,9 +192,9 @@ window.T4K = {
       credits: [['Client', 'Shea Moisture'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     },
     {
-      slug: 'product-grid', name: 'Product Grid', type: 'Social ad', ar: 4 / 5,
+      slug: 'sheaversity', name: 'Sheaversity', type: 'Class of 2025', ar: 4 / 5,
       vimeo: 'https://vimeo.com/1115638001',
-      poster: 'media/posters/product-grid.jpg', look: [58, 70, 0.46, 200],
+      poster: 'media/posters/sheaversity.jpg', look: [58, 70, 0.46, 200],
       about: ['Write-up coming soon: a couple of lines about the brief, the idea and the shoot.'],
       credits: [['Client', 'Shea Moisture'], ['Director', 'Tommy Omolabi'], ['DP', 'Tommy Omolabi'], ['Editor', 'Tommy Omolabi']]
     },
